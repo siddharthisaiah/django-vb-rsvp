@@ -9,6 +9,9 @@ class Event(models.Model):
     event_datetime = models.DateField()
     max_attendees = models.IntegerField()
 
+    def __str__(self):
+        return f'{self.name} - {self.event_datetime} - {self.max_attendees}'
+
 
 class Comment(models.Model):
     event = models.ForeignKey('Event', on_delete=models.CASCADE)
