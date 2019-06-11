@@ -1,8 +1,89 @@
 {% extends 'events/base.html' %}
 
-
 {% block content %}
 
-<h1>Event Details Page</h1>
+<div class="container">
+    <div class="row justify-content-md-center">
+	<div class="col-md-6">
+
+
+            <div class="row">
+		<div class="col-md-12 mt-4">
+                    <div>
+			<h3>Monday June 10, 2019 16:00</h3>
+		    </div>
+                    <div>
+			<h1>My first Volleyball Event</h1>
+		    </div>
+
+		    <br/>
+		    <div>
+                        <p>In hac habitasse platea dictumst quisque sagittis, purus sit amet volutpat consequat,
+			    mauris nunc congue nisi, vitae! Consequat semper viverra nam libero justo,
+			    laoreet sit amet cursus sit amet, dictum.
+			</p>
+		    </div>
+
+
+                    <br/>
+		    <div class="border border-dark rounded">
+			<form action="">
+			    <div class="form-group">
+				<div class="custom-control custom-checkbox">
+				    <input type="checkbox" class="custom-control-input" id="customCheck1">
+				    <label class="custom-control-label" for="customCheck1">Are you going? RSVP now: </label>
+				</div>
+				<div class="custom-control custom-checkbox">
+                                    <button class="btn btn-sm btn-outline-primary">Update</button>
+				</div>
+
+			    </div>
+			</form>
+		    </div>
+
+
+		</div>
+
+	    </div>
+
+            <hr/>
+	    
+	    <!-- Going and waitlisted peoples -->
+	    <button data-toggle="collapse" data-target="#demo">Collapsible</button>
+            <div class="row collapse" id="demo">
+		<div class="col-md-6">
+                    <h3>Confirmed</h3>
+                    <ul>
+                        <li>Person 1</li>
+                        <li>Person 2</li>
+                        <li>Person 3</li>
+                        <li>Person 4</li>
+                        <li>Person 5</li>
+                    </ul>
+		</div>
+
+                <div class="col-md-6">
+		    <h3>
+			Waitlisted
+		    </h3>
+
+		    <ul>
+                        <li>Person 1</li>
+                        <li>Person 2</li>
+                        <li>Person 3</li>
+                        <li>Person 4</li>
+                        <li>Person 5</li>
+                    </ul>
+		</div>
+		
+	    </div>
+
+            <hr/>
+	    <!-- comments -->
+	</div>
+    </div>
+</div>
+
+
 
 {% endblock %}
