@@ -10,10 +10,11 @@
             <div class="row">
 		<div class="col-md-12 mt-4">
                     <div>
-			<h3>Monday June 10, 2019 16:00</h3>
+			<h1>My first Volleyball Event</h1>
 		    </div>
                     <div>
-			<h1>My first Volleyball Event</h1>
+
+			<h4>Monday June 10, 2019 16:00</h4>
 		    </div>
 
 		    <br/>
@@ -28,15 +29,14 @@
                     <br/>
 		    <div class="border border-dark rounded">
 			<form action="">
-			    <div class="form-group">
+			    <div class="form-group m-2">
 				<div class="custom-control custom-checkbox">
 				    <input type="checkbox" class="custom-control-input" id="customCheck1">
 				    <label class="custom-control-label" for="customCheck1">Are you going? RSVP now: </label>
 				</div>
-				<div class="custom-control custom-checkbox">
+				<div class="custom-control custom-checkbox m-2">
                                     <button class="btn btn-sm btn-outline-primary">Update</button>
 				</div>
-
 			    </div>
 			</form>
 		    </div>
@@ -47,12 +47,12 @@
 	    </div>
 
             <hr/>
-	    
+
 	    <!-- Going and waitlisted peoples -->
-	    <button data-toggle="collapse" data-target="#demo">Collapsible</button>
+	    <a href="" data-toggle="collapse" data-target="#demo">Show/Hide Participants</a>
             <div class="row collapse" id="demo">
 		<div class="col-md-6">
-                    <h3>Confirmed</h3>
+                    <h3>Going</h3>
                     <ul>
                         <li>Person 1</li>
                         <li>Person 2</li>
@@ -75,11 +75,40 @@
                         <li>Person 5</li>
                     </ul>
 		</div>
-		
+
 	    </div>
 
             <hr/>
 	    <!-- comments -->
+
+            <div class="row">
+		<div class="col-md-12">
+                    <h3>Comments</h3>
+                    <div class="commentbox">
+                        <div class="author-details">
+			    Posted by: <b>The Mask</b> <i>at 21:33:10</i>
+			</div>
+                        <br/>
+                        <div class="comment">
+                            Eros, in cursus turpis massa tincidunt dui ut ornare lectus sit amet est!
+			    Tincidunt eget nullam non nisi est, sit amet facilisis magna etiam tempor,
+			    orci eu lobortis elementum, nibh.
+			</div>
+		    </div>
+
+                    <br/>
+                    <hr/>
+                    <form action="">
+                        <div class="form-group">
+                                <textarea id="comment" name="comment" class="form-control" rows="3" placeholder="Write a comment"></textarea>
+			</div>
+                        <div class="form-group">
+                            <input name="submit" type="submit" value="Submit" class="btn btn-sm btn-outline-primary form-control" />
+			</div>
+			
+                    </form>
+		</div>
+	    </div>
 	</div>
     </div>
 </div>
