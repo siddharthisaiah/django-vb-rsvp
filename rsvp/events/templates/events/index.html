@@ -9,7 +9,6 @@
 
 
 <div class="container mb-4">
-
     
     <div class="row justify-content-md-center">
 	<div class="col-md-6">
@@ -18,24 +17,7 @@
 		    <div class="card-header">Sunday 04:00 PM, June 23, 2019</div>
 		    <div class="card-body">
 			<h4 class="card-title">First Volleyball Meet</h4>
-			<p class="card-text">Venue: EIS volleyball court. Please bring your own clothes. Thanks!</p>
-		    </div>
-		</div>
-	    </a>
-	</div>
-
-
-	
-    </div>
-
-    <div class="row justify-content-md-center">
-	<div class="col-md-6">
-	    <a href="1/" class="btn">
-		<div class="card text-white bg-dark mb-3">
-		    <div class="card-header">Sunday 04:00 PM, June 23, 2019</div>
-		    <div class="card-body">
-			<h4 class="card-title">First Volleyball Meet</h4>
-			<p class="card-text">Venue: EIS volleyball court. Please bring your own clothes. Thanks!</p>
+			<p class="card-text">Venue: EIS volleyball court. Please bring your own clothes. Thanks! lorem lorem lorem lorem </p>
 		    </div>
 		</div>
 	    </a>
@@ -43,6 +25,23 @@
     </div>
 
     
+
+    
+    {% for event in events %}
+    <div class="row justify-content-md-center">
+	<div class="col-md-6">
+	    <a href="{{ event.id }}/" class="btn">
+		<div class="card text-white bg-dark mb-3">
+		    <div class="card-header">{{ event.event_datetime }}</div>
+		    <div class="card-body">
+			<h4 class="card-title">{{ event.name }}</h4>
+			<p class="card-text">{{ event.description }}</p>
+		    </div>
+		</div>
+	    </a>
+	</div>
+    </div>
+    {% endfor %}
 	
 </div>
 

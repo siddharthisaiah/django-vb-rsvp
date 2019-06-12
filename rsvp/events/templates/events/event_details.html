@@ -10,18 +10,17 @@
             <div class="row">
 		<div class="col-md-12 mt-4">
                     <div>
-			<h1>My first Volleyball Event</h1>
+			<h1>{{ event_details.name }}</h1>
 		    </div>
                     <div>
 
-			<h4>Monday June 10, 2019 16:00</h4>
+			<h4>{{ event_details.event_datetime }}</h4>
 		    </div>
 
 		    <br/>
 		    <div>
-                        <p>In hac habitasse platea dictumst quisque sagittis, purus sit amet volutpat consequat,
-			    mauris nunc congue nisi, vitae! Consequat semper viverra nam libero justo,
-			    laoreet sit amet cursus sit amet, dictum.
+                        <p>
+			    {{ event_details.description }}
 			</p>
 		    </div>
 
@@ -49,17 +48,22 @@
             <hr/>
 
 	    <!-- Going and waitlisted peoples -->
-	    <a href="" data-toggle="collapse" data-target="#demo">Show/Hide Participants</a>
+	    <a href="" data-toggle="collapse" data-target="#demo">Show/Hide Participants (0/{{ event_details.max_attendees }})</a>
+	    {% if attendees %}
+            <p>Peoples are going for this event!</p>
+	    {% endif %}
             <div class="row collapse" id="demo">
 		<div class="col-md-6">
+		    {% if not attendees %}
+                    <p>Be the first to RSVP!</p>
+		    {% else %}
                     <h3>Going</h3>
                     <ul>
-                        <li>Person 1</li>
-                        <li>Person 2</li>
-                        <li>Person 3</li>
-                        <li>Person 4</li>
-                        <li>Person 5</li>
+			{% for attendee in attendees %}
+                        <li>{{attendee.user.username}}</li>
+                        {% endfor %}
                     </ul>
+		    {% endif %}
 		</div>
 
                 <div class="col-md-6">
@@ -100,12 +104,12 @@
                     <hr/>
                     <form action="">
                         <div class="form-group">
-                                <textarea id="comment" name="comment" class="form-control" rows="3" placeholder="Write a comment"></textarea>
+                            <textarea id="comment" name="comment" class="form-control" rows="3" placeholder="Write a comment"></textarea>
 			</div>
                         <div class="form-group">
                             <input name="submit" type="submit" value="Submit" class="btn btn-sm btn-outline-primary form-control" />
 			</div>
-			
+
                     </form>
 		</div>
 	    </div>
