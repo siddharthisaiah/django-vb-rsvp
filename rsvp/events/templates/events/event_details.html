@@ -27,14 +27,21 @@
 
                     <br/>
 		    <div class="border border-dark rounded">
-			<form action="">
+			<form action="{% url 'rsvp' event_details.id %}" method="POST">
 			    <div class="form-group m-2">
-				<div class="custom-control custom-checkbox">
-				    <input type="checkbox" class="custom-control-input" id="customCheck1">
-				    <label class="custom-control-label" for="customCheck1">Are you going? RSVP now: </label>
-				</div>
+				{% csrf_token %}
+				{{ rsvp_form }}
+
+				{% if rsvp_form.rsvp.value %}
+                                <br/>
+                                <small>You are going for this event</small>
+				{% else %}
+				<small>You are NOT  going for this event</small>
+				{% endif %}
+			
+
 				<div class="custom-control custom-checkbox m-2">
-                                    <button class="btn btn-sm btn-outline-primary">Update</button>
+                                    <input  type="submit" class="btn btn-sm btn-outline-primary" />
 				</div>
 			    </div>
 			</form>

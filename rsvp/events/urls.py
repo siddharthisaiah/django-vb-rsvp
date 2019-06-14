@@ -20,4 +20,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name="index"),
     path('<int:pk>/', views.event, name="event"),
+    path('rsvp/<int:pk>/', views.rsvp, name="rsvp"),
+    path('save/comment/<int:pk>/', views.comment, name="comment"),
 ]
