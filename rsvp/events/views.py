@@ -3,8 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 from datetime import datetime
-from .models import Event, Attendee
-from .forms import RsvpForm
+from .models import Event, Attendee, Comment
+from .forms import RsvpForm, CommentForm
 # Create your views here.
 
 @login_required
@@ -19,15 +19,19 @@ def index(request):
 def event(request, pk):
     event_details = get_object_or_404(Event, id=pk)
     attendees = Attendee.objects.filter(event=event_details)
+    comments = Comment.objects.filter(event=event_details)
 
     # check if user is going to event
     user_is_going = Attendee.objects.filter(event=pk, user=request.user).exists()
     rsvp_form = RsvpForm(initial={'rsvp': user_is_going}) # dynamic inital values
+    comment_form = CommentForm()
     
     context = {'title': 'RSVP - Event Details',
                'event_details':event_details,
                'attendees': attendees,
-               'rsvp_form': rsvp_form}
+               'rsvp_form': rsvp_form,
+               'comments': comments,
+               'comment_form': comment_form}
     return render(request, 'events/event_details.html', context)
 
 
@@ -51,5 +55,15 @@ def rsvp(request, pk):
 
 
 def comment(request, pk):
-    # TODO: handle the saving of a comment by the user
-    return HttpResponse(f"<h1>Going to save a comment for event id: {pk}</h1")
+    # handle the saving of a comment by the user
+    if not request.method == 'POST':
+        return HttpResponse('<h1>Access Is not allowed</h1>')
+
+    form = CommentForm(request.POST)
+    if form.is_valid():
+        comment = form.cleaned_data['comment']
+        if comment:
+            new_comment = Comment(event_id=pk, user=request.user, comment=comment)
+            new_comment.save()
+    
+    return redirect('event', pk=pk)

@@ -107,11 +107,27 @@
 			</div>
 		    </div>
 
+		    {% for comment in comments %}
                     <br/>
-                    <hr/>
-                    <form action="">
+			<div class="commentbox">
+                            <div class="author-details">
+				<h5>Posted by: <b>{{ comment.user.first_name }} {{comment.user.last_name }}</b> <i>at {{ comment.posted_at }}</i></h5>
+			    </div>
+                            <br/>
+                            <div class="comment">
+				{{ comment.comment}}
+			    </div>
+			</div>
+                        <br/>
+                        <hr/>
+		    {% endfor%}
+
+                    <br/>
+
+                    <form action="{% url 'comment' event_details.id %}" method="POST">
+			{% csrf_token %}
                         <div class="form-group">
-                            <textarea id="comment" name="comment" class="form-control" rows="3" placeholder="Write a comment"></textarea>
+                            {{ comment_form }}
 			</div>
                         <div class="form-group">
                             <input name="submit" type="submit" value="Submit" class="btn btn-sm btn-outline-primary" />

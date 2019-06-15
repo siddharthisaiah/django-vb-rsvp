@@ -16,7 +16,8 @@ class Event(models.Model):
 class Comment(models.Model):
     event = models.ForeignKey('Event', on_delete=models.CASCADE)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    posted_at = models.DateField(auto_now_add=True)
+    comment = models.TextField(default="Nothing to say here")
+    posted_at = models.DateTimeField(auto_now_add=True)
 
 
 class Attendee(models.Model):
