@@ -19,6 +19,8 @@ def index(request):
 def event(request, pk):
     event_details = get_object_or_404(Event, id=pk)
     attendees = Attendee.objects.filter(event=event_details)
+    going = attendees[:event_details.max_attendees]
+    waitlisted = attendees[event_details.max_attendees:]
     comments = Comment.objects.filter(event=event_details)
 
     # check if user is going to event
@@ -31,7 +33,9 @@ def event(request, pk):
                'attendees': attendees,
                'rsvp_form': rsvp_form,
                'comments': comments,
-               'comment_form': comment_form}
+               'comment_form': comment_form,
+               'going': going,
+               'waitlisted': waitlisted}
     return render(request, 'events/event_details.html', context)
 
 
