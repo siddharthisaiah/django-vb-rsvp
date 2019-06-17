@@ -55,7 +55,7 @@
             <hr/>
 
 	    <!-- Going and waitlisted peoples -->
-	    <a href="" data-toggle="collapse" data-target="#demo">Show/Hide Participants (0/{{ event_details.max_attendees }})</a>
+	    <a href="" data-toggle="collapse" data-target="#demo">Show/Hide Participants ({{ going|length }}/{{ event_details.max_attendees }})</a>
 
             <div class="row collapse" id="demo">
 		<div class="col-md-6">
