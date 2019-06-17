@@ -9,10 +9,10 @@ from .forms import RsvpForm, CommentForm
 
 @login_required
 def index(request):
+    title = 'RSVP'
     now = datetime.date
     events = Event.objects.filter(event_datetime__gte=datetime.now())
-    print(events)
-    return render(request, 'events/index.html', {"events":events})
+    return render(request, 'events/index.html', {"title":title, "events":events})
 
 
 @login_required
